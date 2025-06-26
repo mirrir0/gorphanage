@@ -1,0 +1,85 @@
+# Gorphanage Configuration File
+# Place this file in your home directory as ~/.gorphanage.yaml
+# or in your project root as .gorphanage.yaml
+
+# Output Settings
+# ===============
+
+# Output results in JSON format (useful for tooling integration)
+json: false
+
+# Enable verbose output with detailed progress information
+verbose: false
+
+# Analysis Options
+# ================
+
+# Include test files in the analysis
+# By default, test functions are excluded as they have separate entry points
+include-tests: false
+
+# Package Exclusion Patterns
+# ===========================
+
+# Exclude packages matching these glob patterns
+# Supports wildcards (*) and can match package paths or parts of paths
+exclude:
+  # Common exclusions
+  - "vendor/*"              # Vendor dependencies
+  - "third_party/*"         # Third-party code
+  
+  # Generated code patterns
+  - "*.pb.go"               # Protocol buffer generated files
+  - "*_generated.go"        # Generated Go files
+  - "bindata.go"            # go-bindata generated files
+  - "*_gen.go"              # Common generated file suffix
+  
+  # Build artifacts
+  - "build/*"               # Build directories
+  - "dist/*"                # Distribution directories
+  
+  # Documentation
+  - "docs/*"                # Documentation
+  - "examples/*"            # Example code (often standalone)
+  
+  # Test utilities (if you want to exclude them)
+  # - "*_test.go"           # Uncomment to exclude all test files
+  # - "testdata/*"          # Uncomment to exclude test data
+  
+  # Tool-specific exclusions
+  - "tools/*"               # Development tools
+  - "scripts/*"             # Build/utility scripts
+  - "mocks/*"               # Mock implementations
+  
+  # Framework-specific patterns
+  - "*.swagger.go"          # Swagger generated code
+  - "*.gql.go"              # GraphQL generated code
+  - "*resolver.go"          # GraphQL resolvers (often auto-generated)
+
+# Advanced Options (Future Features)
+# ===================================
+
+# Maximum analysis depth (prevent infinite recursion)
+# max-depth: 100
+
+# Analysis timeout
+# timeout: "10m"
+
+# Custom entry points (beyond main() and init())
+# entry-points:
+#   - "github.com/myorg/myproject/cmd.Execute"
+#   - "github.com/myorg/myproject/server.Start"
+
+# Symbol filtering
+# ignore-exported: false    # Ignore exported symbols in library packages
+# ignore-private: false     # Focus only on exported symbols
+
+# Performance tuning
+# parallel: true            # Enable parallel analysis
+# cache: true               # Cache analysis results
+
+# Output formatting
+# format:
+#   group-by: "kind"         # Group results by: kind, package, file
+#   sort-by: "name"          # Sort by: name, file, line
+#   show-stats: true         # Show analysis statistics
