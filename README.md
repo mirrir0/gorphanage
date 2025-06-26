@@ -305,13 +305,14 @@ check-orphans:
 
 ## 🆚 Comparison
 
-| Tool | Method | Accuracy | Go-Aware | Config | JSON Output |
+| Tool | Method | Accuracy[^1] | Go-Aware | Config | JSON Output |
 |------|--------|----------|----------|--------|-------------|
 | **Gorphanage** | Reachability Analysis | 99.9% | ✅ | ✅ | ✅ |
 | `deadcode` | Reference Counting | 85% | ✅ | ❌ | ❌ |
 | `ineffassign` | Assignment Analysis | 70% | ✅ | ❌ | ❌ |
 | `grep -r "funcName"` | Text Search | 60% | ❌ | ❌ | ❌ |
 
+[^1]: I **Completely** made this up.
 ## 📚 Advanced Features
 
 ### Custom Entry Points
